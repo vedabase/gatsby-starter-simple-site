@@ -1,0 +1,11 @@
+.menuItem {
+  margin-left: 1rem;
+}
+
+.menuItem:first-child {
+  margin-left: 0;
+}
+
+.active {
+  color: red;
+}
