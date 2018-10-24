@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "gatsby";
+import { StaticQuery, Link, graphql } from "gatsby";
 import styled, { css } from "react-emotion";
 import { rhythm } from "../utils/typography";
 
@@ -23,33 +23,46 @@ const ListLink = props => (
 );
 
 export default ({ children }) => (
-  <div
-    className={css`
-      margin: 0 auto;
-      max-width: 700px;
-      padding: ${rhythm(1)};
-      padding-top: ${rhythm(1.5)};
+  <StaticQuery
+    query={graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
     `}
-  >
-    <header style={{ marginBottom: `1.5rem` }}>
-      <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-        <h3
-          className={css`
-            margin-bottom: ${rhythm(2)};
-            display: inline-block;
-            font-style: normal;
-          `}
-        >
-          MySweetSite
-        </h3>
-      </Link>
-      <ul style={{ listStyle: `none`, float: `right` }}>
-        <ListLink to="/">Home</ListLink>
-        <ListLink to="/about/">About</ListLink>
-        <ListLink to="/contact/">Contact</ListLink>
-      </ul>
-    </header>
-    {children}
-    <footer style={{ textAlign: `center` }}>--- This is footer ---</footer>
-  </div>
+    render={data => (
+      <div
+        className={css`
+          margin: 0 auto;
+          max-width: 700px;
+          padding: ${rhythm(1)};
+          padding-top: ${rhythm(1.5)};
+        `}
+      >
+        <header style={{ marginBottom: `1.5rem` }}>
+          <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
+            <h3
+              className={css`
+                margin-bottom: ${rhythm(2)};
+                display: inline-block;
+                font-style: normal;
+              `}
+            >
+              {data.site.siteMetadata.title}
+            </h3>
+          </Link>
+          <ul style={{ listStyle: `none`, float: `right` }}>
+            <ListLink to="/">Home</ListLink>
+            <ListLink to="/about/">About</ListLink>
+            <ListLink to="/contact/">Contact</ListLink>
+          </ul>
+        </header>
+        {children}
+        <footer style={{ textAlign: `center` }}>--- This is footer ---</footer>
+      </div>
+    )}
+  />
 );
