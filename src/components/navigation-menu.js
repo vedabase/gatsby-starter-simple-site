@@ -1,17 +1,30 @@
 import React from "react";
 import { Link } from "gatsby";
-import styles from "./navigation-menu.module.css";
+import styled from "styled-components";
+
+const StyledLink = styled(Link)`
+  margin-left: 1rem;
+  &:first-child {
+    margin-left: 0;
+  }
+  &.active {
+    color: red;
+  }
+`;
 
 const MenuItem = props => (
-    <Link className={styles.menuItem} activeClassName={styles.active} to={props.to}>
-      {props.name}
-    </Link>
+  <StyledLink
+    activeClassName="active"
+    to={props.to}
+  >
+    {props.name}
+  </StyledLink>
 );
 
 export default () => (
   <div>
     <MenuItem to="/" name="Home" />
-    <MenuItem to="/about/" name="About"/>
-    <MenuItem to="/contact/" name="Contact"/>
+    <MenuItem to="/about/" name="About" />
+    <MenuItem to="/contact/" name="Contact" />
   </div>
 );
