@@ -1,8 +1,6 @@
 import React from "react";
-import Header from "../components/header";
-import NavigationMenu from "../components/navigation-menu";
-import Container from "../components/container";
-import styled from "styled-components";
+import Layout from "../components/layout"
+import styled from "react-emotion";
 
 
 const UserWrapper = styled.div`
@@ -47,9 +45,7 @@ const User = props => (
 )
 
 export default () => (
-  <Container>
-    <Header headerText="About Gatsby" />
-    <NavigationMenu />
+  <Layout>
     <p>Hare Krishna Hare Rama</p>
     <User
       username="Nitai Gaura"
@@ -62,5 +58,5 @@ export default () => (
       avatar="https://source.unsplash.com/random/400x200"
       excerpt="I'm Gaura Nitai. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
     />
-  </Container>
+  </Layout>
 );

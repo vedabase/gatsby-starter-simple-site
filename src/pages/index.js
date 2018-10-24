@@ -1,12 +1,8 @@
 import React from "react";
-import Header from "../components/header";
-import NavigationMenu from "../components/navigation-menu";
-import Container from "../components/container";
+import Layout from "../components/layout";
 
 export default () => (
-  <Container>
-    <Header headerText="Index" />
-    <NavigationMenu />
+  <Layout>
     <p>What a world.</p>
     <p>
       From Richard Hamming’s classic and must-read talk, “
@@ -27,5 +23,5 @@ export default () => (
     </blockquote>
     <p>Posted April 09, 2011</p>
     <img src="https://source.unsplash.com/random/400x200" alt="" />
-  </Container>
+  </Layout>
 );

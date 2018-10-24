@@ -1,12 +1,8 @@
-import React from "react"
-import Container from "../components/container";
-import Header from "../components/header"
-import NavigationMenu from "../components/navigation-menu";
+import React from "react";
+import Layout from "../components/layout";
 
 export default () => (
-  <Container>
-    <Header headerText="Contact"></Header>
-    <NavigationMenu></NavigationMenu>
+  <Layout>
     <p>Send us a message!</p>
-  </Container>
-)
+  </Layout>
+);
